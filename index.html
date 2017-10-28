@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New Contest</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<input type="button" id="tcb" value="show">
+
+<form style="border:1px dashed red ">
+    <div id="contest" style="margin: 10px ">
+        Contest_name : <input type="text" placeholder="Enter Contest Name">
+    </div>
+    <!--<button style="margin: 10px;padding:15px 15px 15px 15px " type="button" class="btn btn-info" data-toggle="collapse" data-target="#p1">Problem1</button><br>-->
+    <div id="p1" style="margin: 10px;padding:15px 15px 15px 15px ">
+        <div class="form-group">
+            <fieldset>
+                <legend>Problem Description</legend>
+                Problem Name : <input type="text" placeholder="Enter Problem Name"> <br><br><br>
+                Problem Statement:<br>  <br>  <textarea id="statement" rows="10" cols="60"></textarea>
+            </fieldset>
+        </div>
+        <div class="form-group" id="sampleCases">
+            <fieldset>
+                <legend>Sample Testcases</legend>
+                Sample Testcase 1: <br><br><textarea placeholder="nsn" id="sti1" rows="2" cols="30"> </textarea>
+                &nbsp;&nbsp;&nbsp;<textarea id="sto1" rows="2" cols="30"> </textarea>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a id="addsc" href="#">Add More</a><br>
+            </fieldset>
+        </div>
+
+        <div id="tests" class="form-group">
+            <fieldset>
+                <legend>Test Cases</legend>
+                Testcase 1: <br><br> <textarea id="tci1" rows="2" cols="30"> </textarea>
+                &nbsp;&nbsp;&nbsp;<textarea id="tco1" rows="2" cols="30"> </textarea>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="addtc" href="#">Add More</a><br>
+            </fieldset>
+        </div>
+
+        <!--<div>-->
+        <!--Judge_solution <br><br> <textarea id="edi" rows="7" cols="25"></textarea>-->
+        <!--</div>-->
+
+    </div>
+</form>
+<script src="index.js" type="text/javascript"></script>
+</body>
+</html>
