@@ -8,54 +8,60 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<input type="button" id="tcb" value="show">
 
-<form id="contest_form" style="border:1px dashed red ">
-    <div id="contest" style="margin: 10px ">
-        Contest Name : <input id="ctitle" type="text" placeholder="Enter Contest Name"> <br><br><br>
-        Contest Code : &nbsp;<input id="ccode" type="text" placeholder="Enter Contest Code" >
-    </div>
-    <div id="problems">
-        <div id="problem-container">
-            <button type="button" class="btn btn-info prob-btn" data-toggle="collapse" data-target="#p1">Problem 1</button><br>
-            <div class="collapse prob-btn" id="p1" >
-                <div class="form-group">
-                    <fieldset>
-                        <legend>Problem Description</legend>
-                        Problem Name : <input id='ptitle' type="text" placeholder="Enter Problem Name"> <br><br><br>
-                        Problem Statement:<br>  <br>  <textarea placeholder="Enter Problem Statement.." id="pstatement" rows="10" cols="60"></textarea>
-                    </fieldset>
-                </div>
-                <div class="form-group" id="p1sample">
-                    <fieldset>
-                        <legend>Sample Testcases</legend>
-                        Sample Testcase 1: <br><br><textarea placeholder="Enter Input" id="p1sti1" rows="2" cols="30"></textarea>
-                        &nbsp;&nbsp;&nbsp;<textarea placeholder="Enter Output" id="p1sto1" rows="2" cols="30"></textarea>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a class="addst" href="#">Add More</a><br>
-                    </fieldset>
-                </div>
-
-                <div id="p1test" class="form-group">
-                    <fieldset>
-                        <legend>Test Cases</legend>
-                        Testcase 1: <br><br> <textarea placeholder="Enter Input" id="p1tci1" rows="2" cols="30"></textarea>
-                        &nbsp;&nbsp;&nbsp;<textarea placeholder="Enter Output" id="p1tco1" rows="2" cols="30"></textarea>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="addtc" href="#">Add More</a><br>
-                    </fieldset>
-                </div>
-
-                <!--<div>-->
-                <!--Judge_solution <br><br> <textarea id="edi" rows="7" cols="25"></textarea>-->
-                <!--</div>-->
-
-            </div>
+    <form id="contest_form" style="border:1px dashed red ">
+        <div id="contest" style="margin: 10px ">
+            Contest Name : <input id="ctitle" type="text" placeholder="Enter Contest Name"> <br><br><br>
+            Contest Code : &nbsp;<input id="ccode" type="text" placeholder="Enter Contest Code" >
         </div>
-    <button  id="pbtn" type="button" class="btn btn-default btn-sm prob-btn">
-        <span class="glyphicon glyphicon-plus"></span> Add Problem
-    </button>
-    </div>
-    <button type="submit" id='submit_form' class="btn btn-default" style="margin:30px">Submit</button>
-</form>
-<script src="index.js" type="text/javascript"></script>
+
+        <div id="problems">
+            <div id="problem-container">
+                <button type="button" class="btn btn-info prob-btn" data-toggle="collapse" data-target="#p1">Problem 1</button><br>
+                <div class="collapse prob-btn" id="p1" >
+
+                    <div class="form-group">
+                        <fieldset>
+                            <legend>Problem Description</legend>
+                            Problem Name : <input id='p1title' type="text" placeholder="Enter Problem Name"> <br><br><br>
+                            Problem Statement:<br>  <br>  <textarea placeholder="Enter Problem Statement.." id="p1statement" rows="10" cols="60"></textarea>
+                        </fieldset>
+                    </div>
+
+                    <div class="form-group" id="p1sample">
+                        <fieldset>
+                            <legend>Sample Testcases</legend>
+                            Sample Testcase 1: <br><br><textarea placeholder="Enter Input" id="p1sti1" rows="2" cols="30"></textarea>
+                            &nbsp;&nbsp;&nbsp;<textarea placeholder="Enter Output" id="p1sto1" rows="2" cols="30"></textarea>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a class="addst" href="#">Add More</a><br>
+                        </fieldset>
+                    </div>
+
+                    <div id="p1test" class="form-group">
+                        <fieldset>
+                            <legend>Test Cases</legend>
+                            Testcase 1: <br><br> <textarea placeholder="Enter Input" id="p1tci1" rows="2" cols="30"></textarea>
+                            &nbsp;&nbsp;&nbsp;<textarea placeholder="Enter Output" id="p1tco1" rows="2" cols="30"></textarea>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="addtc" href="#">Add More</a><br>
+                        </fieldset>
+                    </div>
+
+                    <!--<div>-->
+                    <!--Judge_solution <br><br> <textarea id="edi" rows="7" cols="25"></textarea>-->
+                    <!--</div>-->
+
+                </div>
+            </div>
+
+        <button  id="pbtn" type="button" class="btn btn-default btn-sm prob-btn">
+            <span class="glyphicon glyphicon-plus"></span> Add Problem
+        </button>
+
+        </div>
+        <button type="submit" id='submit_form' class="btn btn-default" style="margin:30px">Submit</button>
+
+    </form>
+
+    <script src="index.js" type="text/javascript"></script>
 </body>
 </html>

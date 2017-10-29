@@ -1,4 +1,3 @@
-
 function addProblemsDynamically() {
     var id = $('#problem-container').find('div.prob-btn').filter(':last').attr('id');
     id = parseInt(id.slice(1,id.length))+1;
@@ -34,19 +33,14 @@ function addProblemsDynamically() {
         '</div>'
 
     $('#problem-container').append(s);
-
-
 }
+function problemCount(){
+    var totalProblems = $('#problem-container').find('div').filter(':last').attr('id');
+    totalProblems = parseInt(totalProblems.slice(1,totalProblems.length));
 
-$("#tcb").click(function () {
-    console.log('testing');
-    addProblemsDynamically()
-});
-
-$('#pbtn').click(function () {
-    addProblemsDynamically();
-});
-
+    console.log(totalProblems);
+    return totalProblems;
+}
 function convertTestCase(tc_input){
     var modifiedString = '';
     for(var i=0;i<tc_input.length;i+=1){
@@ -68,61 +62,81 @@ function addTestsDynamically(element, ID, initial, header) {
     var id = element.find('textarea').filter(':last').attr('id');
     id = parseInt(id.slice(5,id.length))+1;
     element.find('a').remove();
-    element.append(header + id + ":" + "<br><br><textarea placeholder='Enter Input' rows='2' cols='30'></textarea>&nbsp;&nbsp;&nbsp;<textarea placeholder='Enter Output' rows='2' cols='30'></textarea>");
-    element.find('textarea').filter(':nth-last-child(2)').attr('id',initial + 'i' + id);
-    element.find('textarea').filter(':last').attr('id',initial + 'o'+ id);
+    element.append(header + id + ":" + "<br><br><textarea id='"+initial+'i'+id+"' placeholder='Enter Input' rows='2' cols='30'></textarea>&nbsp;&nbsp;&nbsp;<textarea id='" + initial + 'o' + id +"'placeholder='Enter Output' rows='2' cols='30'></textarea>");
     element.append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='#'>Add More</a><br>");
     element.find('a').filter(':last').attr('class',ID);
 }
+
 
 $("body").on('click','.addst',function () {
     console.log('fired event by' + $(this).attr('id'));
     var curr = $(this);
 
     id = curr.parent().parent().attr('id').slice(0,2);
-    addTestsDynamically($("#"+id+"sample"),'addst',id+'st', 'Sample Testcase');
+    addTestsDynamically($("#"+id+"sample"),'addst',id+'st', 'Sample Testcase ');
 });
+
 
 $("body").on('click','.addtc',function () {
     var curr = $(this);
     id = curr.parent().parent().attr('id').slice(0,2);
-    addTestsDynamically($("#"+id+"test"),'addtc',id+'tc', 'Testcase');
+    addTestsDynamically($("#"+id+"test"),'addtc',id+'tc', 'Testcase ');
 });
+
+
+$('#pbtn').click(function () {
+    addProblemsDynamically();
+    problemCount();
+});
+
 
 $('#contest_form').submit(function (e) {
     e.preventDefault();
+    var totalProblems = problemCount();
     var contestName = $('#ctitle').val();
-    var problemName = $('#ptitle').val();
-    var problemStatement = $('#pstatement').val();
-    var problemCode = 'A';
-    var id = $('#tests').find('textarea').filter(':last').attr('id');
-    var totalTestCases=parseInt(id.slice(3,id.length));
-    id = $('#sampleCases').find('textarea').filter(':last').attr('id');
-    var totalSamples=parseInt(id.slice(3,id.length));
-    testCasesInputs = [];
-    testCasesOutputs = [];
-    sampleCasesInputs = [];
-    sampleCasesOutputs = [];
-    for(var i=1;i<=totalTestCases;i+=1){
-        testCasesInputs.push(convertTestCase($('#tci'+ i).val()));
-        testCasesOutputs.push(convertTestCase($('#tco'+ i).val()));
+    var contestCode = $('#ccode').val();
+    var problems = []
+    for(var i=1;i<=totalProblems;i+=1) {
+
+        var problemName = $('#p'+i+'title').val();
+        var problemStatement = $('#p'+i+'statement').val();
+        var problemCode = String.fromCharCode(64+i);
+        var id = $('#p'+i+'test').find('textarea').filter(':last').attr('id');
+        var totalTestCases = parseInt(id.slice(5, id.length));
+        id = $('#p'+i+'sample').find('textarea').filter(':last').attr('id');
+        var totalSamples = parseInt(id.slice(5, id.length));
+        testCasesInputs = [];
+        testCasesOutputs = [];
+        sampleCasesInputs = [];
+        sampleCasesOutputs = [];
+        for (var j = 1; j <= totalTestCases; j += 1) {
+            console.log($('#p'+i+'tci' + j).val());
+            testCasesInputs.push(convertTestCase($('#p'+i+'tci' + j).val()));
+            testCasesOutputs.push(convertTestCase($('#p'+i+'tco' + j).val()));
+        }
+        for (var j = 1; j <= totalSamples; j += 1) {
+            sampleCasesInputs.push(convertTestCase($('#p'+i+'sti' + j).val()));
+            sampleCasesOutputs.push(convertTestCase($('#p'+i+'sto' + j).val()));
+        }
+        obj = {
+                problem_name : problemName,
+                problem_code : problemCode,
+                problem_statement : problemStatement,
+                total_tc : totalTestCases,
+                total_st : totalSamples,
+                test_cases_inputs : testCasesInputs,
+                test_cases_outputs : testCasesOutputs,
+                sample_test_cases_inputs : sampleCasesInputs,
+                sample_test_cases_outputs : sampleCasesOutputs
+        }
+        problems.push(obj);
+
     }
-    for(var i=1;i<=totalSamples;i+=1){
-        sampleCasesInputs.push(convertTestCase($('#sti'+ i).val()));
-        sampleCasesOutputs.push(convertTestCase($('#sto'+ i).val()));
-    }
-    console.log(testCases);
     data = {
         contest_name : contestName,
-        problem_name : problemName,
-        problem_code : problemCode,
-        problem_statement : problemStatement,
-        total_tc : totalTestCases,
-        total_st : totalSamples,
-        test_cases_inputs : testCasesInputs,
-        test_cases_outputs : testCasesOutputs,
-        sample_test_cases_inputs : sampleCasesInputs,
-        sample_test_cases_outputs : sampleCasesOutputs
+        contest_code : contestCode,
+        total_problems : totalProblems,
+        prob_data : problems
     }
     console.log(data);
 
