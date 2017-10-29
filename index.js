@@ -56,6 +56,15 @@ function convertTestCase(tc_input){
     return modifiedString;
 }
 
+function calculateSeconds(lis_time_param) {
+    var mult=3600;
+    var totalSecondsElapsed = 0;
+    for(var i=0;i<lis_time_param.length;i+=1){
+        totalSecondsElapsed+=parseInt(lis_time_param[i])*mult;
+        mult=mult/60;
+    }
+    return totalSecondsElapsed;
+}
 
 function addTestsDynamically(element, ID, initial, header) {
     alert(element.attr('id'));
@@ -95,6 +104,10 @@ $('#contest_form').submit(function (e) {
     var totalProblems = problemCount();
     var contestName = $('#ctitle').val();
     var contestCode = $('#ccode').val();
+    var contestDate = $('#cdate').val();
+    var contestStartTime = $('#cstart').val().split(' ')[0];
+    var contestEndTime = $('#cend').val().split(' ')[0];
+    var duration = (calculateSeconds(contestEndTime.split(':'))-calculateSeconds(contestStartTime.split(':')));
     var problems = []
     for(var i=1;i<=totalProblems;i+=1) {
 
@@ -132,15 +145,20 @@ $('#contest_form').submit(function (e) {
         problems.push(obj);
 
     }
+
     data = {
+        contest_date : contestDate,
         contest_name : contestName,
         contest_code : contestCode,
+        contest_start_time : contestStartTime,
+        contest_end_time : contestEndTime,
+        duration : duration,
         total_problems : totalProblems,
         prob_data : problems
     }
     console.log(data);
 
-    fetch("http://127.0.0.1:8000/api/contest/new/", {
+    fetch("http://127.0.0.1:8000/api/contests/new/", {
         method: "POST",
         headers: {
             "Accept": "application/json",

@@ -11,8 +11,11 @@
 
     <form id="contest_form" style="border:1px dashed red ">
         <div id="contest" style="margin: 10px ">
-            Contest Name : <input id="ctitle" type="text" placeholder="Enter Contest Name"> <br><br><br>
-            Contest Code : &nbsp;<input id="ccode" type="text" placeholder="Enter Contest Code" >
+            Contest Name : <input id="ctitle" type="text" placeholder="Enter Contest Name" required> <br><br><br>
+            Contest Code : &nbsp;<input id="ccode" type="text" placeholder="Enter Contest Code" required>
+            Contest Date : &nbsp;<input id='cdate' type="date" required>
+            Start Time :   &nbsp;<input required id="cstart" type="time">
+            End Time :     &nbsp;<input required id="cend" type="time">
         </div>
 
         <div id="problems">
