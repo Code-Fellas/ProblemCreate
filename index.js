@@ -157,7 +157,7 @@ $('#contest_form').submit(function (e) {
         prob_data : problems
     }
     console.log(data);
-
+    $(window).scrollTop(0);
     fetch("http://127.0.0.1:8000/api/contests/new/", {
         method: "POST",
         headers: {
@@ -167,5 +167,13 @@ $('#contest_form').submit(function (e) {
         body: JSON.stringify(data)
     })
         .then((res) => res.json())
-        .then((data) => console.log(data))
+        .then((data) => {
+                        var message_div = $('#message');
+                        if(data['status']){
+                            message_div.html('<strong> Success! </strong> '+ data['message']).addClass("alert alert-success");
+                        }
+                        else{
+                            message_div.html('<strong> Oops! </strong> '+ data['message']).addClass("alert alert-warning");
+                        }
+        })
     });
