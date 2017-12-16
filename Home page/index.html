@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en"">
+    <head>
+        <meta charset="UTF-8">
+        <title>DTU Battleground</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="style.css"> 
+    </head>
+    <body data-spy="scroll" data-target=".navbar" data-offset="100">
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">
+                        <img style="display: inline-block;" src="https://intaffairs.dtu.ac.in/static/img/dtu_logo.png" height="30" width="30" /> DTU BattleGround
+                    </a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li><a href="#about-us">About Us</a></li>
+                    <li><a href="#our-team">Our Team</a></li>
+                    <li><a href="#contact-us">Contact Us</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div id="main-block" class="container-fluid">
+            <h1 id="title">DTU BattleGround</h1>
+            <h2 id="subtitle">while(!succeed) try();</h1>
+            <div id="main-buttons" class="row">
+                    <div class="col-lg-6"><button type="button" class="btn btn-custom btn-lg">LOGIN</button></div>
+                    <div class="col-lg-6"><button type="button" class="btn btn-custom btn-lg">SIGN UP</button></div>
+            </div>
+        </div>
+        <div id="about-us" class="container-fluid section">
+            <div class="col-lg-6 section-heading">
+                ABOUT US
+            </div>
+            <div class="col-lg-6 section-text">
+                <p>DTU BattleGround provides a platform to the various societies, faculty and students of Delhi Technological University to host private coding competitions online. With a feature-rich IDE supporting widely used programming languages like C++, Python, and Java, DTU BattleGround ensures a perfect environment to the budding coders.</p>
+                <p>DTU BattleGround can be used to host competitive contests, practice events, or can act as a platform for coding assignments submission. It also acts as a gateway for students looking for opportunities to sharpen their programming skills. We plan to extend our operations outside DTU in near future.</p>
+            </div>
+        </div>
+        <hr class="hr-line" />
+        <div id="our-team" class="container-fluid section">
+            <div class="col-lg-6 section-heading">
+                OUR TEAM
+            </div>
+            <div class="col-lg-6 section-text" style="height: 95vh; padding-top: 5vh;">
+                <p align="center">Made with ♪ and ❤ by</p>
+                <div class="row" style="padding-top: 2vh;">
+                    <div class="col-lg-6 gallery">
+                        <img src="Vaibhav.jpeg" class="img-rounded" height="150px" align="center" />
+                        <div class="gallery-capt">
+                            <strong><em>Vaibhav Jain</em></strong>
+                            <br />
+                            Front-end developer
+                            <br />
+                            Content Manager
+                        </div>
+                    </div>
+                    <div class="col-lg-6 gallery">
+                        <img src="sanski.jpg" class="img-rounded" height="150px" align="center" />
+                        <div class="gallery-capt">
+                            <strong><em>Sanskar Jain</em></strong>
+                            <br />
+                            Back-end developer
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="padding-top: 2vh;">
+                    <div class="col-lg-6 gallery">
+                        <img src="sirjan.jpg" class="img-rounded" height="150px" align="center" />
+                        <div class="gallery-capt">
+                            <strong><em>Sirjanpreet Singh Banga</em></strong>
+                            <br />
+                            Back-end developer
+                        </div>
+                    </div>
+                    <div class="col-lg-6 gallery">
+                        <img src="sarvagya.jpg" class="img-rounded" height="150px" align="center" />
+                        <div class="gallery-capt">
+                            <strong><em>Sarvagya Bhargava</em></strong>
+                            <br />
+                            Front-end developer
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr class="hr-line" />
+        <div id="contact-us" class="container-fluid section" style="height: 90vh;">
+            <div class="col-lg-6 section-heading">
+                CONTACT US
+            </div>
+            <div class="col-lg-6 section-text" style="padding-top: 5vh;">
+                <p>Got any suggestion, query, or feebdack? Hit us with a message and we will try to contact you ASAP.</p>
+                <div class="container">
+                    <form action="/action_page.php">
+
+                    <label for="fname">First Name</label>
+                    <input type="text" id="fname" name="firstname" placeholder="Your first name" required="required">
+
+                    <label for="lname">Last Name</label>
+                    <input type="text" id="lname" name="lastname" placeholder="Your last name" required="required">
+
+                    <label for="email">Email ID</label>
+                    <input type="email" id="email" name="email" placeholder="Your email id" required="required">
+
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" class="form-control" placeholder="Message" rows="4" required="required"></textarea>
+
+                    <input type="submit" value="Submit">
+
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid endsection">
+            © 2017, DTU BattleGround
+        </div>
+    </body>
+</html>

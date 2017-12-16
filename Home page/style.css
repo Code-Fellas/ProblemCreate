@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css?family=Yellowtail|Cinzel|Arima+Madurai|Special+Elite');
+
+.navbar
+{
+	background-color: black;
+	font-family: 'Cinzel', serif;
+	vertical-align: text-top;
+}
+
+.navbar-brand
+{
+	color: #00ffe9; !important
+	font-weight: bolder;
+    text-shadow: 0 0 10px #efff00, 0 0 10px #efff00;
+	padding-top: 2vh;
+}
+
+#main-block
+{
+	height: 100vh;
+	padding-top: 30vh;
+	background-image: url("wallpaper.jpg");
+	background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#title
+{
+	text-align: center;
+	font-family: 'Special Elite', cursive;
+	color: #FD1C03;
+	font-weight: bold;
+}
+
+#subtitle
+{
+	text-align: center;
+	font-family: 'Courier New';
+	color: #FF6600;
+	font-weight: bold;
+}
+
+h1
+{
+	font-size: 5em;
+}
+
+#main-buttons
+{
+	padding: 2% 35% 2% 35%;
+	text-align: center;
+}
+
+.section
+{
+	height: 80vh;
+}
+
+.section-heading
+{
+	text-align: center;
+	padding-top: 38vh;
+	vertical-align: middle;
+	font-size: 3em;
+	font-family: 'Lucida Handwriting';
+}
+
+.section-text
+{
+	text-align: justify;
+	padding-top: 15vh;
+	vertical-align: middle;
+	font-size: 1.5em;
+	font-family: 'Arima Madurai', cursive;
+}
+
+.hr-line
+{
+	width: 95%;
+	text-align: center;
+	height: 10px;
+	border: 0;
+	box-shadow: 0 10px 10px -10px #8c8b8b inset;
+}
+
+.gallery
+{
+	text-align: center;
+}
+
+.gallery-capt
+{
+	font-size: 0.8em;
+	padding: 15px;
+    text-align: center;
+}
+
+.btn-custom
+{
+	background-color: #099FFF;
+	color: white;
+	font-family: 'Yellowtail', Cursive;
+}
+
+input[type=text], input[type=email], select, textarea {
+    width: 70vh; /* Full width */
+    padding: 12px; /* Some padding */  
+    border: 1px solid #ccc; /* Gray border */
+    border-radius: 4px; /* Rounded borders */
+    box-sizing: border-box; /* Make sure that padding and width stays in place */
+    margin-top: 6px; /* Add a top margin */
+    margin-bottom: 16px; /* Bottom margin */
+    resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+}
+
+
+
+/* Style the submit button with a specific background color etc */
+input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* When moving the mouse over the submit button, add a darker green color */
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+/* Add a background color and some padding around the form */
+.container {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding-right: 10%;
+    padding-bottom: 2%;
+    width: 100vh;
+}
+
+.endsection
+{
+	text-align: center;
+	padding-top: 5vh;
+	padding-bottom: 5vh;
+	background-color: #d3d3d3;
+	font-family: 'Times New Roman';
+	font-size: 1.2em;
+}
