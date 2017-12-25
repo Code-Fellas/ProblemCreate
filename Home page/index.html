@@ -19,17 +19,13 @@
   
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
         <script src="script.js" type="text/javascript"></script>
-        <link rel="stylesheet" type="text/css" href="style - Copy.css"> 
+        <link rel="stylesheet" type="text/css" href="style.css"> 
     </head>
     <body>
         <header role="banner">
-        <div id="cd-logo"><a href="#0"><img src="dtulogo.png" height="50px" width="50px" alt="Logo"></a></div>
+        <div id="cd-logo"><a href="#0"><img src="logo.png" height="60px" width="300px" alt="Logo" valign="middle"></a></div>
+        
         <nav class="main-nav">
-            <ul class="nav navbar-nav">
-                    <li><a href="#about-us">About Us</a></li>
-                    <li><a href="#our-team">Our Team</a></li>
-                    <li><a href="#contact-us">Contact Us</a></li>
-                </ul>
             <ul class="navbar-right">
                 <!-- inser more links here -->
                 <li><a class="cd-signin" href="#0">Sign in</a></li>
@@ -76,6 +72,12 @@
 
             <div id="cd-signup"> <!-- sign up form -->
                 <form class="cd-form">
+                	<p class="fieldset">
+                        <label class="image-replace cd-name" for="signup-name">Name</label>
+                        <input class="full-width has-padding has-border" id="signup-name" type="text" placeholder="Name">
+                        <span class="cd-error-message">Error message here!</span>
+                    </p>
+
                     <p class="fieldset">
                         <label class="image-replace cd-username" for="signup-username">Username</label>
                         <input class="full-width has-padding has-border" id="signup-username" type="text" placeholder="Username">
@@ -89,15 +91,16 @@
                     </p>
 
                     <p class="fieldset">
-                        <label class="image-replace cd-password" for="signup-password">Password</label>
-                        <input class="full-width has-padding has-border" id="signup-password" type="text"  placeholder="Password">
-                        <a href="#0" class="hide-password">Hide</a>
+                        <label class="image-replace cd-phone" for="signup-phone">Phone No.</label>
+                        <input class="full-width has-padding has-border" id="signup-phone" type="number" placeholder="Phone No.">
                         <span class="cd-error-message">Error message here!</span>
                     </p>
 
                     <p class="fieldset">
-                        <input type="checkbox" id="accept-terms">
-                        <label for="accept-terms">I agree to the <a href="#0">Terms</a></label>
+                        <label class="image-replace cd-password" for="signup-password">Password</label>
+                        <input class="full-width has-padding has-border" id="signup-password" type="text"  placeholder="Password">
+                        <a href="#0" class="hide-password">Hide</a>
+                        <span class="cd-error-message">Error message here!</span>
                     </p>
 
                     <p class="fieldset">

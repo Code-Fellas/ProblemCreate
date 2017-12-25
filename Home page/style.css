@@ -9,6 +9,13 @@
     background-repeat: no-repeat;
 }
 
+.navbar
+{
+  background-color: black;
+  font-family: 'Cinzel', serif;
+  vertical-align: text-top;
+}
+
 #title
 {
 	text-align: center;
@@ -90,7 +97,7 @@ h1
 	font-family: 'Yellowtail', Cursive;
 }
 
-input[type=text], input[type=email], select, textarea {
+input[type=text], input[type=email], input[type=number], select, textarea {
     width: 70vh; /* Full width */
     padding: 12px; /* Some padding */  
     border: 1px solid #ccc; /* Gray border */
@@ -449,6 +456,16 @@ xsigin/signup popup
 }
 .cd-form label.cd-password {
   background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-password.svg");
+}
+.cd-form label.cd-phone
+{
+  background-image: url("https://n6-img-fp.akamaized.net/free-icon/phone-call_318-143289.jpg?size=338&ext=jpg");
+  background-size: cover;
+}
+.cd-form label.cd-name
+{
+  background-image: url("https://www.iconexperience.com/_img/i_collection_png/512x512/plain/id_card.png");
+  background-size: cover;
 }
 .cd-form input {
   margin: 0;
