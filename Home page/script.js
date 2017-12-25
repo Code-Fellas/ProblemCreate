@@ -26,7 +26,7 @@ jQuery(document).ready(function($){
 			// on mobile close submenu
 			$main_nav.children('ul').removeClass('is-visible');
 			//show modal layer
-			$form_modal.addClass('is-visible');	
+			$form_modal.addClass('is-visible');
 			//show the selected form
 			( $(event.target).is('.cd-signup') ) ? signup_selected() : login_selected();
 		}
@@ -37,7 +37,7 @@ jQuery(document).ready(function($){
 	$('.cd-user-modal').on('click', function(event){
 		if( $(event.target).is($form_modal) || $(event.target).is('.cd-close-form') ) {
 			$form_modal.removeClass('is-visible');
-		}	
+		}
 	});
 	//close modal when clicking the esc keyboard button
 	$(document).keyup(function(event){
@@ -56,14 +56,14 @@ jQuery(document).ready(function($){
 	$('.hide-password').on('click', function(){
 		var $this= $(this),
 			$password_field = $this.prev('input');
-		
+
 		( 'password' == $password_field.attr('type') ) ? $password_field.attr('type', 'text') : $password_field.attr('type', 'password');
 		( 'Hide' == $this.text() ) ? $this.text('Show') : $this.text('Hide');
 		//focus and move cursor to the end of input field
 		$password_field.putCursorAtEnd();
 	});
 
-	//show forgot-password form 
+	//show forgot-password form
 	$forgot_password_link.on('click', function(event){
 		event.preventDefault();
 		forgot_password_selected();
@@ -74,6 +74,55 @@ jQuery(document).ready(function($){
 		event.preventDefault();
 		login_selected();
 	});
+
+  $('.cd-form').on('submit',function(event){
+    event.preventDefault();
+
+    if ($form_login.hasClass('is-selected')){
+        var username = $('#signin-username').val();
+        var password = $('#signin-password').val();
+
+        payload = {
+          'username' : username,
+          'password' : password
+        }
+
+        fetch('http://127.0.0.1:8000/api/user/login/', {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json, text/plain, */*',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        }).then(res=>res.json())
+          .then(res => console.log(res));
+    }
+    else if($form_signup.hasClass('is-selected')){
+        var name = $('#signup-name').val();
+        var email_id = $('#signup-email').val();
+        var password = $('#signup-password').val();
+        var username = $('#signup-username').val();
+        var mobile_number = $('#signup-phone').val();
+
+        payload = {
+          'username' : username,
+          'password' : password,
+          'name' : name,
+          'mobile_number' : mobile_number,
+          'email' : email_id
+        }
+
+        fetch('http://127.0.0.1:8000/api/user/create/', {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json, text/plain, */*',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        }).then(res=>res.json())
+          .then(res => console.log(res));
+    }
+  });
 
 	function login_selected(){
 		$form_login.addClass('is-selected');
@@ -96,17 +145,6 @@ jQuery(document).ready(function($){
 		$form_signup.removeClass('is-selected');
 		$form_forgot_password.addClass('is-selected');
 	}
-
-	//REMOVE THIS - it's just to show error messages 
-	$form_login.find('input[type="submit"]').on('click', function(event){
-		event.preventDefault();
-		$form_login.find('input[type="email"]').toggleClass('has-error').next('span').toggleClass('is-visible');
-	});
-	$form_signup.find('input[type="submit"]').on('click', function(event){
-		event.preventDefault();
-		$form_signup.find('input[type="email"]').toggleClass('has-error').next('span').toggleClass('is-visible');
-	});
-
 
 	//IE9 placeholder fallback
 	//credits http://www.hagenburger.net/BLOG/HTML5-Input-Placeholder-Fix-With-jQuery.html
